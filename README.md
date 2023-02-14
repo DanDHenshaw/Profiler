@@ -6,7 +6,7 @@ Setup:
 - Extract the `include` and `lib` folders into your VS Studio solution directory.
 - Open your projects properties:
   - Navigate to `C/C++ > Additional Include Directoires` and link the `include` folder path.
-  - Navigate to `Linker > Input > Additional Dependencies` and link the `Profiler.lib` file path.
+  - Navigate to `Linker > Input > Additional Dependencies` and link the `Profiler.lib` & `Profiler-d.lib` file path.
 
 Usage:
 ----------------------------
