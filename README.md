@@ -2,7 +2,7 @@ C++ Profiler
 ==========
 Setup:
 ----------------------------
-- Download the Profiler.zip [here]().
+- Download the Profiler.zip [here](https://github.com/DanDHenshaw/Profiler/releases).
 - Extract the `include` and `lib` folders into your VS Studio solution directory.
 - Open your projects properties:
   - Navigate to `C/C++ > Additional Include Directoires` and link the `include` folder path.
