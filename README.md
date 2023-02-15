@@ -2,11 +2,11 @@ C++ Profiler
 ==========
 Setup:
 ----------------------------
-- Download the Profiler.zip [here]().
+- Download the Profiler.zip [here](https://github.com/DanDHenshaw/Profiler/releases).
 - Extract the `include` and `lib` folders into your VS Studio solution directory.
 - Open your projects properties:
   - Navigate to `C/C++ > Additional Include Directoires` and link the `include` folder path.
-  - Navigate to `Linker > Input > Additional Dependencies` and link the `Profiler.lib` file path.
+  - Navigate to `Linker > Input > Additional Dependencies` and link the `Profiler.lib` file for **Release** config & `Profiler-d.lib` file for **Debug** config.
 
 Usage:
 ----------------------------
