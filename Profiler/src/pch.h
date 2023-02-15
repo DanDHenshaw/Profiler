@@ -8,8 +8,8 @@
 #define PCH_H
 
 // add headers that you want to pre-compile here
-#include "Timer.h"
-#include "Instrumentor.h"
-#include "Profiler.h"
+#include "include/Timer.h"
+#include "include/Instrumentor.h"
+#include "include/Profiler.h"
 
 #endif //PCH_H

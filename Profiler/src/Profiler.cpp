@@ -4,7 +4,7 @@ namespace Profiler
 {
 	void BeginSession(std::string Profile)
 	{
-		Instrumentor::Get().BeginSession(Profile);
+		Instrumentor::Get().BeginSession(Profile, Profile + ".json");
 	}
 
 	void EndSession()

@@ -71,19 +71,21 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)</OutDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)</OutDir>
     <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)</IntDir>
+    <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)</OutDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)</OutDir>
     <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)</OutDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)</OutDir>
     <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)</IntDir>
+    <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)</OutDir>
+    <OutDir>$(SolutionDir)bin\$(Platform)</OutDir>
     <IntDir>$(SolutionDir)bin\intermediate\$(Platform)\$(Configuration)</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -100,6 +102,17 @@
       </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>IF exist "$(OutDir)lib" (echo "$(OutDir)lib" exists) ELSE (md "$(OutDir)lib" &amp;&amp; echo "$(OutDir)lib" created)
+move "$(OutDir)$(TargetName).lib" "$(OutDir)lib"
+
+xcopy /isvy "$(ProjectDir)src\include" "$(OutDir)include"
+
+copy "$(SolutionDir)README.md" "$(OutDir)"
+
+del /S "$(OutDir)*.pdb" &amp;&amp; del /S "$(OutDir)*.idb"</Command>
+      <Message>Copy needed include folder</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -119,6 +132,17 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>IF exist "$(OutDir)lib" (echo "$(OutDir)lib" exists) ELSE (md "$(OutDir)lib" &amp;&amp; echo "$(OutDir)lib" created)
+move "$(OutDir)$(TargetName).lib" "$(OutDir)lib"
+
+xcopy /isvy "$(ProjectDir)src\include" "$(OutDir)include"
+
+copy "$(SolutionDir)README.md" "$(OutDir)"
+
+del /S "$(OutDir)*.pdb" &amp;&amp; del /S "$(OutDir)*.idb"</Command>
+      <Message>Copy needed include folder</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -134,6 +158,17 @@
       </SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>IF exist "$(OutDir)lib" (echo "$(OutDir)lib" exists) ELSE (md "$(OutDir)lib" &amp;&amp; echo "$(OutDir)lib" created)
+move "$(OutDir)$(TargetName).lib" "$(OutDir)lib"
+
+xcopy /isvy "$(ProjectDir)src\include" "$(OutDir)include"
+
+copy "$(SolutionDir)README.md" "$(OutDir)"
+
+del /S "$(OutDir)*.pdb" &amp;&amp; del /S "$(OutDir)*.idb"</Command>
+      <Message>Copy needed include folder</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -153,12 +188,23 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>IF exist "$(OutDir)lib" (echo "$(OutDir)lib" exists) ELSE (md "$(OutDir)lib" &amp;&amp; echo "$(OutDir)lib" created)
+move "$(OutDir)$(TargetName).lib" "$(OutDir)lib"
+
+xcopy /isvy "$(ProjectDir)src\include" "$(OutDir)include"
+
+copy "$(SolutionDir)README.md" "$(OutDir)"
+
+del /S "$(OutDir)*.pdb" &amp;&amp; del /S "$(OutDir)*.idb"</Command>
+      <Message>Copy needed include folder</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Instrumentor.h" />
-    <ClInclude Include="src\Profiler.h" />
+    <ClInclude Include="src\include\Instrumentor.h" />
+    <ClInclude Include="src\include\Profiler.h" />
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Timer.h" />
+    <ClInclude Include="src\include\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Instrumentor.cpp" />

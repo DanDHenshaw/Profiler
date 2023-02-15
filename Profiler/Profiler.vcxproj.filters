@@ -18,16 +18,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Profiler.h">
+    <ClInclude Include="src\include\Profiler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h">
       <Filter>PCH</Filter>
     </ClInclude>
-    <ClInclude Include="src\Timer.h">
+    <ClInclude Include="src\include\Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Instrumentor.h">
+    <ClInclude Include="src\include\Instrumentor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
